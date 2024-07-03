@@ -1,0 +1,118 @@
+.cards {
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.25); 
+  backdrop-filter: blur(15px) contrast(1.1) brightness(1.1); 
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15); 
+  position: relative; 
+  border-radius: 20px; 
+  overflow: hidden; 
+}
+
+.cards::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 100%); 
+  z-index: -1;
+  border-radius: 20px; 
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  text-align: center;
+  color: #252e48;
+  margin-bottom: 3rem; 
+}
+
+.cards__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.cards__wrapper {
+  display: flex;
+  justify-content: space-between; 
+  flex-wrap: wrap; 
+  gap: 2rem; 
+  max-width: 100%; 
+}
+
+.cards__item {
+  flex: calc(50% - 1rem);
+  border-radius: 20px; 
+  overflow: hidden;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s ease-in-out;
+  position: relative;
+}
+
+.cards__item:hover {
+  transform: translateY(-5px); 
+}
+
+.cards__item__link {
+  display: block;
+  border-radius: 20px; 
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.cards__item__pic-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px; 
+}
+
+.cards__item__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease-in-out;
+  filter: brightness(0.8) saturate(120%); 
+  border-radius: 20px; 
+}
+
+.cards__item__img:hover {
+  transform: scale(1.1); 
+}
+
+.cards__item__info {
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem; 
+  background-color: rgba(255, 255, 255, 0.95); 
+  border-radius: 0 0 20px 20px; 
+  transition: background-color 0.3s ease; 
+  opacity: 0; 
+}
+
+.cards__item:hover .cards__item__info {
+  opacity: 1; 
+}
+
+.cards__item__text {
+  color: #252e48; 
+  font-size: 1.8rem; 
+  line-height: 2.4rem; 
+  text-align: center; 
+  transition: opacity 10s ease; 
+}
+
+.cards__item:hover .cards__item__text {
+  opacity: 0; 
+}
+
+@media only screen and (max-width: 768px) {
+  .cards__item {
+    flex: 100%; 
+  }
+}
